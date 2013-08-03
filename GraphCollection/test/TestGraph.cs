@@ -74,8 +74,8 @@ namespace GraphCollection.test
         [Test]
          public void ShouldFindShortestPath1()
         {
-            var dijksta = new Pather<int>(_graph);
-            var path = dijksta.CalculateShortesPath(one, five).ToArray();
+            var pather = new Pather<int>(_graph);
+            var path = pather.CalculateShortesPath(one, five).ToArray();
             
             path[0].ShouldBe(one);
             path[1].ShouldBe(two);
@@ -87,8 +87,8 @@ namespace GraphCollection.test
         [Test]
         public void ShouldFindShortestPath2()
         {
-            var dijksta = new Pather<int>(_graph);
-            var path = dijksta.CalculateShortesPath(one, seven).ToArray();
+            var pather = new Pather<int>(_graph);
+            var path = pather.CalculateShortesPath(one, seven).ToArray();
             
             path[0].ShouldBe(one);
             path[1].ShouldBe(two);
@@ -99,8 +99,8 @@ namespace GraphCollection.test
         [Test]
         public void ShouldFindShortestPath3()
         {
-            var dijksta = new Pather<int>(_graph);
-            var path = dijksta.CalculateShortesPath(six, seven).ToArray();
+            var pather = new Pather<int>(_graph);
+            var path = pather.CalculateShortesPath(six, seven).ToArray();
             
             path[0].ShouldBe(six);
             path[1].ShouldBe(three);
@@ -114,8 +114,8 @@ namespace GraphCollection.test
             var nine = new GraphNode<int>(9);
             _graph.AddNode(nine);
 
-            var dijksta = new Pather<int>(_graph);
-            var path = dijksta.CalculateShortesPath(one, nine).ToArray();
+            var pather = new Pather<int>(_graph);
+            var path = pather.CalculateShortesPath(one, nine).ToArray();
             
             path.Count().ShouldBe(0);
         }
@@ -123,8 +123,8 @@ namespace GraphCollection.test
         [Test]
         public void ShouldPathToNeighbour()
         {
-            var dijksta = new Pather<int>(_graph);
-            var path = dijksta.CalculateShortesPath(one, two).ToArray();
+            var pather = new Pather<int>(_graph);
+            var path = pather.CalculateShortesPath(one, two).ToArray();
            
             path.Count().ShouldBe(2);
             
