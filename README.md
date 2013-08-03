@@ -1,14 +1,13 @@
 GraphCollection
 ===============
 
-A graph collection with Dijkstra algorithm for C#
+A graph collection with Dijkstra algorithm for C#. See my blog for more information http://www.arakawa.asia/graphs-and-pathing-in-csharp/
 
 Graph built on the information based on the information @ http://msdn.microsoft.com/en-us/library/ms379574(v=vs.80).aspx
 Dijkstra's algorithm based on the wikipedia entry @ http://en.wikipedia.org/wiki/Dijkstra's_algorithm
+Special thanks to Ikegami Atsuko http://cleo.ci.seikei.ac.jp/~atsuko/
 
-
-
-example usage (to graph the image @ http://en.wikipedia.org/wiki/Dijkstra's_algorithm and perform the shortest path example from node 1 to node 5)
+Example usage (to graph the image @ http://en.wikipedia.org/wiki/Dijkstra's_algorithm and perform the shortest path example from node 1 to node 5):
 
 Graph<int> _graph = new Graph<int>();
 
