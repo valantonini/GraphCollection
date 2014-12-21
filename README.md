@@ -6,10 +6,15 @@ Completely re-written to be simpler and hopefully increase performance. Currentl
 Example usage for wikipedia entry at http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
 
 var one = new GraphNode<int>(1);
+
 var two = new GraphNode<int>(2);
+
 var three = new GraphNode<int>(3);
+
 var four = new GraphNode<int>(4);
+
 var five = new GraphNode<int>(5);
+
 var six = new GraphNode<int>(6);
 
 one.AddNeighbour(six, 14);
