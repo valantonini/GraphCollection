@@ -36,11 +36,6 @@ var graph = new List<GraphNode<int>> {one, two, three, four, five, six};
 var dijkstra = new Dijkstra<int>(graph);
 var path = dijkstra.FindShortestPathBetween(one, five);
 
-path[0].Value.ShouldBe(1);
-path[1].Value.ShouldBe(3);
-path[2].Value.ShouldBe(6);
-path[3].Value.ShouldBe(5);
-
 Special thanks to Ikegami Atsuko http://cleo.ci.seikei.ac.jp/~atsuko/
 
 Please visit my blog at http://www.arakawa.asia
