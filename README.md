@@ -1,15 +1,9 @@
 GraphCollection
 ===============
 
-A graph collection with Dijkstra algorithm for C#. See my blog for more information http://www.arakawa.asia/graphs-and-pathing-in-csharp/
+Completely re-written to be simpler and hopefully increase performance. Currently only supports bi-directional nodes.
 
-Graph built on the information based on the information @ http://msdn.microsoft.com/en-us/library/ms379574(v=vs.80).aspx
-Dijkstra's algorithm based on the wikipedia entry @ http://en.wikipedia.org/wiki/Dijkstra's_algorithm
-Special thanks to Ikegami Atsuko http://cleo.ci.seikei.ac.jp/~atsuko/
-
-Example usage (to graph the image @ http://en.wikipedia.org/wiki/Dijkstra's_algorithm and perform the shortest path example from node 1 to node 5):
-
-Graph<int> _graph = new Graph<int>();
+Example usage for wikipedia entry at http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
 
 var one = new GraphNode<int>(1);
 var two = new GraphNode<int>(2);
@@ -18,28 +12,31 @@ var four = new GraphNode<int>(4);
 var five = new GraphNode<int>(5);
 var six = new GraphNode<int>(6);
 
-_graph.AddNode(one);
-_graph.AddNode(two);
-_graph.AddNode(three);
-_graph.AddNode(four);
-_graph.AddNode(five);
-_graph.AddNode(six);
+one.AddNeighbour(six, 14);
+one.AddNeighbour(three, 9);
+one.AddNeighbour(two, 7);
 
-_graph.AddUndirectedEdge(one, two, 7);
-_graph.AddUndirectedEdge(one, three, 9);
-_graph.AddUndirectedEdge(one, six, 14);
+two.AddNeighbour(three, 10);
+two.AddNeighbour(four, 15);
 
-_graph.AddUndirectedEdge(two, three, 10);
-_graph.AddUndirectedEdge(two, four, 15);
+three.AddNeighbour(six, 2);
+three.AddNeighbour(four, 11);
 
+four.AddNeighbour(five, 6);
 
-_graph.AddUndirectedEdge(three, four, 11);
-_graph.AddUndirectedEdge(three, six, 2);
+five.AddNeighbour(six, 9);
 
-_graph.AddUndirectedEdge(four, five, 6);
+var graph = new List<GraphNode<int>> {one, two, three, four, five, six};
 
-_graph.AddUndirectedEdge(five, six, 9);
+var dijkstra = new Dijkstra<int>(graph);
+var path = dijkstra.FindShortestPathBetween(one, five);
 
+path[0].Value.ShouldBe(1);
+path[1].Value.ShouldBe(3);
+path[2].Value.ShouldBe(6);
+path[3].Value.ShouldBe(5);
 
-var pather = new Pather<int>(_graph);
-var path = pather.CalculateShortesPath(one, five).ToArray();
+Special thanks to Ikegami Atsuko http://cleo.ci.seikei.ac.jp/~atsuko/
+
+Please visit my blog at http://www.arakawa.asia
+
