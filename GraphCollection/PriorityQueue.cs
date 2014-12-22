@@ -12,14 +12,9 @@ namespace GraphCollection
             get { return _innerList.Count; }
         }
 
-        public PriorityQueue()
+        public PriorityQueue(IComparer<T> comparer = null)
         {
-            _comparer = Comparer<T>.Default;
-        }
-
-        public PriorityQueue(IComparer<T> comparer)
-        {
-            _comparer = comparer;
+            _comparer = comparer ?? Comparer<T>.Default;
         }
         
         public void Push(T item)
@@ -44,7 +39,6 @@ namespace GraphCollection
         {
             _innerList.Sort(_comparer);
         }
-
 
         public bool Contains(T item)
         {
