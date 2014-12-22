@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace GraphCollection
 {
@@ -28,11 +27,6 @@ namespace GraphCollection
             _innerList.Add(item);
         }
 
-        private void Sort()
-        {
-            _innerList.Sort(_comparer);
-        }
-
         public T Pop()
         {
             if (_innerList.Count <= 0)
@@ -46,19 +40,15 @@ namespace GraphCollection
             return item;
         }
 
+        private void Sort()
+        {
+            _innerList.Sort(_comparer);
+        }
+
+
         public bool Contains(T item)
         {
             return _innerList.Contains(item);
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            return _innerList.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
         }
     }
 }

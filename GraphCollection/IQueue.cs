@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace GraphCollection
+﻿namespace GraphCollection
 {
-    public interface IPriorityQueue<T> : IEnumerable<T>
+    public interface IPriorityQueue<T>
     {
         void Push(T item);
         T Pop();
