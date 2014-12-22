@@ -35,14 +35,14 @@ namespace GraphCollection
             return item;
         }
 
-        private void Sort()
-        {
-            _innerList.Sort(_comparer);
-        }
-
         public bool Contains(T item)
         {
             return _innerList.Contains(item);
+        }
+
+        private void Sort()
+        {
+            _innerList.Sort(_comparer);
         }
     }
 }
