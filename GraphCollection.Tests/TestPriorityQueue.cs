@@ -48,6 +48,27 @@ namespace GraphCollection.Tests
             _priorityQueue.Contains(4).ShouldBe(false);
         }
 
+        [Test]
+        public void ShouldPopFromEmptyQueueForValueTypes()
+        {
+            _priorityQueue.Push(5);
+            
+            _priorityQueue.Pop().ShouldBe(5);
+            _priorityQueue.Pop().ShouldBe(0);
+        }
+
+        [Test]
+        public void ShouldPopFromEmptyQueueForReferenceTypes()
+        {
+            IPriorityQueue<ReferenceTypeWrapper> priorityQueue = new PriorityQueue<ReferenceTypeWrapper>(new CompareReferenceTypeWrapper());
+
+            var one = new ReferenceTypeWrapper(1);
+
+            priorityQueue.Push(one);
+
+            priorityQueue.Pop().Value.ShouldBe(1);
+            priorityQueue.Pop().ShouldBe(null);
+        }
 
         [Test]
         public void ShouldMaintainOrderedQueue()
