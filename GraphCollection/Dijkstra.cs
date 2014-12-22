@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace GraphCollection
@@ -14,24 +13,18 @@ namespace GraphCollection
             _graph = graph.ToList();
         }
 
-        [SuppressMessage("ReSharper", "TooWideLocalVariableScope")]
         public IList<GraphNode<T>> FindShortestPathBetween(GraphNode<T> start, GraphNode<T> finish)
         {
             PrepareGraphForDijkstra();
             start.TentativeDistance = 0;
 
-            //does declaring them here this Save heap allocation in while?
-            GraphNode<T> next;
-            GraphNode<T> smallest;
-            int newTentativeDistance;
-            
             var current = start;
 
             while (true)
             {
                 foreach (var neighbour in current.Neighbours.Where(x => !x.GraphNode.Visited))
                 {
-                    newTentativeDistance = current.TentativeDistance + neighbour.Distance;
+                    var newTentativeDistance = current.TentativeDistance + neighbour.Distance;
                     if (newTentativeDistance < neighbour.GraphNode.TentativeDistance)
                     {
                         neighbour.GraphNode.TentativeDistance = newTentativeDistance;
@@ -40,7 +33,7 @@ namespace GraphCollection
 
                 current.Visited = true;
 
-                next = _unvistedNodes.Pop();
+                var next = _unvistedNodes.Pop();
                 if (next == null || next.TentativeDistance == int.MaxValue)
                 {
                     if (finish.TentativeDistance == int.MaxValue)
@@ -51,7 +44,7 @@ namespace GraphCollection
                     break;
                 }
 
-                smallest = next;
+                var smallest = next;
                 current = smallest;
             }
 
