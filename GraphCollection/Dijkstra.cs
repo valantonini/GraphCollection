@@ -91,7 +91,7 @@ namespace GraphCollection
         }
     }
 
-    class CompareNeighbour<T> : IComparer<GraphNode<T>>
+    internal class CompareNeighbour<T> : IComparer<GraphNode<T>>
     {
         public int Compare(GraphNode<T> x, GraphNode<T> y)
         {
