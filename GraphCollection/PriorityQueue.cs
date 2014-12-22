@@ -28,7 +28,7 @@ namespace GraphCollection
             _innerList.Add(item);
         }
 
-        public void Sort()
+        private void Sort()
         {
             _innerList.Sort(_comparer);
         }
