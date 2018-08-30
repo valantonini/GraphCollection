@@ -1,6 +1,8 @@
 **GraphCollection**
 ===============
 
+[![Build Status](https://travis-ci.org/valantonini/GraphCollection.svg?branch=master)](https://travis-ci.org/valantonini/GraphCollection)
+
 Completely re-written to be simpler and hopefully increase performance. Currently only supports bi-directional nodes.
 
 ##Example usage  
